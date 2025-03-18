@@ -1,0 +1,142 @@
+<style>
+    body {
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQabIhuDzc0avO6ur9Pg5QWPArjMOHSimZyAg&s');
+        background-size: cover;
+        background-position: center;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 20px auto;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+        transform: scale(1.05);
+    }
+
+    .animate-h1 {
+        animation: moveFromLeft 10s linear infinite;
+        white-space: nowrap;
+        color: #ffffff;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+
+    @keyframes moveFromLeft {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    .patient-dashboard {
+        width: 80%;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: rgba(255, 255, 255, 0.95);
+        border: 1px solid #e0e0e0;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+    }
+
+    .patient-dashboard:hover {
+        transform: translateY(-5px);
+    }
+
+    .patient-dashboard h2 {
+        color: #4CAF50;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .patient-dashboard ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .patient-dashboard li {
+        margin: 15px 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .patient-dashboard a {
+        text-decoration: none;
+        color: #4CAF50;
+        font-size: 1.2rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .patient-dashboard a:hover {
+        color: #3e8e41;
+    }
+
+    .colorful-links span {
+        margin-right: 12px;
+        font-size: 1.5rem;
+    }
+
+    .red { color: #ff4d4d; }
+    .green { color: #00cc00; }
+    .blue { color: #1a75ff; }
+    .yellow { color: #ffcc00; }
+    .purple { color: #cc00cc; }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+        .patient-dashboard {
+            width: 90%;
+            padding: 20px;
+        }
+
+        .animate-h1 {
+            font-size: 1.8rem;
+        }
+
+        .patient-dashboard a {
+            font-size: 1rem;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+        }
+    }
+</style>
+
+<img src="{{ url_for('static', filename='images/Swasthya logo with a catchy tagline.png') }}" alt="Swasthya Logo" class="logo">
+
+<h1 class="animate-h1">Welcome to Swasthya - Your Health, Our Priority</h1>
+
+<div class="patient-dashboard">
+    <h2 style="color: #4CAF50;">Welcome, {{ patient.name }}</h2>
+    <ul>
+        <li class="colorful-links"><span class="red">📤</span> <a href="{{ url_for('upload_lab_report') }}">Upload Lab Report</a></li>
+        <li><a href="{{ url_for('video_call') }}">📹 Start a Video Call</a></li>
+        <li><a href="{{ url_for('medication_search') }}">💊 Medication Search</a></li>
+        <li class="colorful-links"><span class="green">📥</span> <a href="{{ url_for('view_lab_report_replies') }}">View Lab Report Replies</a></li>
+        <li class="colorful-links"><span class="blue">🩺</span> <a href="{{ url_for('anemia_detection') }}">Anemia Detection</a></li>
+        <li class="colorful-links"><span class="yellow">✂️</span> <a href="{{ url_for('summarize') }}">Summarize Medical Record</a></li>
+        <li class="colorful-links"><span class="purple">🗓️</span> <a href="{{ url_for('appointment') }}">Book Appointment</a></li>
+        <li class="colorful-links"><span class="green">🚪</span> <a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+</div>
