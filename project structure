@@ -1,0 +1,78 @@
+the file strcture \
+telemedicine/
+├── backend/
+│   ├── app/
+│   │   ├── templates/
+│   │   │   ├── login_doctor.html
+│   │   │   ├── login_patient.html
+│   │   │   ├── manage_doctor.html
+│   │   │   ├── manage_patient.html
+│   │   │   ├── medication_search.html
+│   │   │   ├── privacy.html
+│   │   │   ├── profile.html
+│   │   │   ├── records.html
+│   │   │   ├── reply_lab_report.html
+│   │   │   ├── services.html
+│   │   │   ├── signup.html
+│   │   │   ├── success.html
+│   │   │   ├── summarize.html
+│   │   │   ├── terms.html
+│   │   │   ├── upload_lab_report.html
+│   │   │   ├── upload_records.html
+│   │   │   ├── video_call.html
+│   │   │   ├── view_appointment.html
+│   │   │   ├── view_booking.html
+│   │   │   ├── view_lab_report.html
+│   │   │   ├── view_patient.html
+│   │   │   ├── view_records.html
+│   │   │   └── view_uploaded.html
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   ├── extensions.py
+│   │   ├── models.py
+│   │   ├── routes.py
+│   │   └── utils.py
+│   ├── database/
+│   │   ├── doctors.csv
+│   │   └── medications.csv
+│   ├── instance/
+│   ├── models/
+│   │   └── anemia_model (probably a TensorFlow or ML model file)
+│   ├── venv/
+│   ├── .gitignore
+│   ├── devserver.sh
+│   ├── README.md
+│   └── requirements.txt
+# Navigate to the project directory
+cd ~/telemedicine
+
+# Create virtual environment
+# For Linux/Mac:
+python3 -m venv venv
+# For Windows:
+python -m venv venv
+
+# Activate virtual environment
+# For Linux/Mac:
+source venv/bin/activate
+# For Windows (Command Prompt):
+venv\Scripts\activate
+# For Windows (PowerShell):
+venv\Scripts\Activate.ps1
+
+# Install required dependencies
+# If requirements.txt is available
+pip install -r requirements.txt
+# If requirements.txt is not available, install packages manually
+pip install flask flask-bcrypt pandas Pillow tensorflow transformers flask-session
+
+# Move to backend directory
+cd backend
+
+# Run the Flask application
+flask run
+
+# To deactivate the virtual environment (optional)
+# deactivate
+
+
